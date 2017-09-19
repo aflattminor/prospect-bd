@@ -1,0 +1,112 @@
+// Place all the styles related to the companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.home_body{
+  width: 5px;
+}
+
+.topnav {
+    background-color: #EDEDED;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    display: block;
+    color: #122C56;
+    text-align: center;
+    padding: 16px 16px;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: lightblue;
+    color: #7A7F82;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: lightblue;
+    color: #7A7F82;
+}
+
+.username {
+  color: #7A7F82;
+  float: right;
+  margin: 20px;
+}
+
+.profile_pic {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 5px 20px;
+  float: right;
+  border: solid;
+  border-color: #FFB201;
+}
+
+.signin {
+  color: #7A7F82;
+  float: right;
+}
+
+.navigation {
+  float: left;
+}
+
+input{
+  width: 25%;
+  height: 30px;
+}
+
+textarea{
+  width: 25%;
+  height: 50px;
+}
+
+input[type=text]:focus{
+  border: 3px solid #7A7F82;
+}
+
+textarea:focus{
+  border: 3px solid #7A7F82;
+}
+
+
+.hero-image {
+     /* The image used */
+     background-image: url("https://i.ytimg.com/vi/BUaFugdLWyE/maxresdefault.jpg");
+
+     /* Set a specific height */
+     height: 50px;
+     width: 50%;
+
+     /* Position and center the image to scale nicely on all screens */
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     position: relative;
+     margin-top: 65px;
+     z-index: 0;
+ }
+
+ .hero-text {
+   color: #122C56;
+   font-family: 'Vast Shadow', bold;
+   font-size: 300%;
+   font-variant: small-caps;
+   text-align: center;
+   opacity: 0.7;
+  }

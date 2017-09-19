@@ -1,0 +1,19 @@
+// Place all the styles related to the companies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+.inline {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-content:left;
+  align-items:left;
+}
+.item{
+  flex: 1 1 auto;
+  border:1px solid #ffebee;
+
+}

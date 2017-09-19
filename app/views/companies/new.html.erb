@@ -1,0 +1,33 @@
+<h1>Add a new Company</h1>
+
+
+<div class='add-company-form'>
+  <br />
+  <%= form_for @company do |f| %>
+    <div class= 'required-fields'>
+      <% f.label :name %>
+      <%= f.text_field :name, placeholder: "Name" %><br />
+
+      <% f.label :employee_count %>
+      <%= f.text_field :employee_count, placeholder: "Employee Count" %><br />
+
+      <% f.label :headquarters %>
+      <%= f.text_field :headquarters, placeholder: "Headquarters" %><br/>
+
+      <% f.label :industry %>
+      <%= f.text_field :industry, placeholder: "Industry" %><br />
+
+      <% f.label :core_business %>
+      <%= f.text_field :core_business, placeholder: "Core Business" %><br />
+
+      <% f.label :public %>
+      <%= f.text_field :public, placeholder: "Publically Traded?" %><br />
+
+      <% f.label :status %>
+      <%= f.text_field :status, placeholder: "Status" %><br />
+      <div>
+        <% f.submit %>
+        <button class="button">Add Company</button>
+      </div>
+  <% end %>
+</div>

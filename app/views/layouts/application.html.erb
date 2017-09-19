@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProspectApp</title>
+    <title>Smile-n-Dial</title>
     <link rel='shortcut icon' href='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtgzgp7SPhYRlJmskKX1c1V6FnZiMSUuZn2PGS0ns_nUBWtQOi'>
     <%= csrf_meta_tags %>
 
@@ -10,8 +10,41 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+
+    <div id="grad">
+
+    <nav class="topnav" id="myTopnav">
+      <div class=navigation><%= link_to "Home", root_path%></div>
+      <% if user_signed_in? %>
+        <div class=username>Signed in as <%= current_user.email %></div>
+        <div class=signin><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
+      <% else%>
+        <div class=signin>
+          <%= link_to "Sign up", new_user_registration_path %>
+          <%= link_to "Sign in", new_user_session_path %>
+        </div>
+      <%end%>
+    </nav>
+
+      
+          <br />
+            <!-- <span>Prospect</span> <span>Trek</span> -->
+            <br />
+            <br />
+        </div>
+    </div>
+    <div class="app">
+
+  <%flash.each do |key, value|%>
+      <% if value.class == Array%>
+      <%value.each do |message|%>
+      <li class="errors"><%=message%></li>
+      <%end%>
+      <%else%>
+        <li class="errors"><%=value%></li>
+      </ul>
+    <%end%>
+  <%end%>
     <%= yield %>
   </body>
 </html>

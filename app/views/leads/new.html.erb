@@ -1,0 +1,26 @@
+<h1>Add a new Lead</h1>
+
+<div class='add-lead-form'>
+  <br />
+  <%= form_for ([@company, @lead]) do |f| %>
+    <div class= 'required-fields'>
+      <% f.label :name %>
+      <%= f.text_field :name, placeholder: "Name" %><br />
+
+      <% f.label :position %>
+      <%= f.text_field :position, placeholder: "Position" %><br />
+
+      <% f.label :phone_number %>
+      <%= f.text_field :phone_number, placeholder: "Direct Dial" %><br/>
+
+      <% f.label :email %>
+      <%= f.text_field :email, placeholder: "Email" %><br />
+
+      <% f.label :status %>
+      <%= f.text_field :status, placeholder: "Lead Status" %><br />
+      <div>
+        <% f.submit %>
+        <button class="button">Add Lead</button>
+      </div>
+  <% end %>
+</div>

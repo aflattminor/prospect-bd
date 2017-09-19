@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+root 'home#show'
 
-  resources :companies
+resources :users
 
-  resources :leads
+  resources :companies do
+      resources :leads
+  end
 
+
+  resources :users do
+    resources :leads
+  end
 end

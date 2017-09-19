@@ -1,11 +1,32 @@
 
+<div class="leads header">
+<h2>Leads assigned to you<h1>
+</div>
+
 <% @leads.each do |lead| %>
-  <h1><%= link_to lead.name, lead_path(lead) %></h1>
-  <h1><%= lead.position %></h1>
-  <h1><%= lead.phone_number %></h1>
-  <h1><%= lead.email %></h1>
+<div class= "inline">
+  <p class = "item"><%= lead.name%></p>
+  <p class = "item"><%= lead.position %></p>
+  <p class = "item"><%= lead.phone_number %></p>
+  <p class = "item"><%= lead.email %></p>
   <br />
+</div>
 <% end %>
 
 
-        <li><%= link_to "Add a Lead", new_lead_path %></li>
+<p>To add a lead select a company<p>
+<%= form_tag do %>
+<select id= "mySelect" name="company_id" onChange="redirect()">
+  <option value="">Select Company</option>
+     <%= @companies.each do |company| %>
+       <option value="<%=company.id%>"><%=company.name%></option>
+     <% end %>
+   </select>
+<% end %>
+
+<script>
+function redirect(){
+  var x = document.getElementById("mySelect").value;
+  window.location = `/companies/${x}/leads/new`
+}
+</script>
