@@ -14,4 +14,8 @@ root 'home#show'
   resources :leads, only:[:index, :show] do
     resources :calls, only:[:index, :show, :create, :new]
   end
+
+  resources :leads, only:[:index, :show] do
+    resources :emails, only:[:index, :show, :create, :new]
+  end
 end

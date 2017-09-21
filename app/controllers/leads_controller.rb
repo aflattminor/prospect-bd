@@ -47,7 +47,7 @@ private
 
 
 def lead_params
-  params.require(:lead).permit(:user_id, :name, :position, :phone_number, :email, :status)
+  params.require(:lead).permit(:company, :user_id, :name, :position, :phone_number, :email, :status)
 end
 
 end

@@ -7,8 +7,13 @@
 <div class= "inline">
   <p class = "item"><%=link_to lead.name, user_lead_path(current_user, lead.id)%></p>
   <p class = "item"><%= lead.position %></p>
+  <p class = "item"><%= lead.company %></p>
   <p class = "item"><%= lead.phone_number %></p>
   <p class = "item"><%= lead.email %></p>
+  <p class = "item"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(lead)%></p>
+  <p class = "item"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(lead)%></p>
+
+
   <br />
 </div>
 <% end %>

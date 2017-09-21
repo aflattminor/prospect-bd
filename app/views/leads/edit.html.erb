@@ -3,6 +3,10 @@
 <%= form_for [@user, @lead]  do |f| %>
 
     <div class= 'required-fields'>
+
+      <% f.label :company %>
+      <%= f.text_field :company, placeholder: "Company" %><br />
+      
       <% f.label :name %>
       <%= f.text_field :name, placeholder: "Name" %><br />
 
