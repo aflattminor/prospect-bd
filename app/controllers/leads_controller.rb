@@ -1,11 +1,13 @@
 class LeadsController < ApplicationController
+ before_action :authenticate_user!
+
   def index
-    @leads = Lead.all
-    @companies = Company.all
+    @leads = Lead.where(user_id: params[:user_id])
+    @leads = current_user.leads
   end
 
   def new
-    @company = Company.find(params[:company_id])
+    @user = current_user
     @lead = Lead.new
   end
 
@@ -14,17 +16,27 @@ class LeadsController < ApplicationController
   end
 
   def create
-    create_by_company
-end
+    @user = current_user
+    @lead = Lead.new(lead_params)
+    @lead.user = @user
+    if @lead.save
+      redirect_to user_leads_path notice: "Lead added successfully"
+    else
+      flash.now[:alert] = @lead.errors.full_messages
+      render :new
+    end
+  end
 
 def edit
+  @user = User.find(params[:user_id])
   @lead = Lead.find(params[:id])
 end
 
 def update
+  @user = current_user
   @lead = Lead.find(params[:id])
   if @lead.update(lead_params)
-    redirect_to @lead, notice: "successfully updated"
+    redirect_to user_lead_path(@lead), notice: "successfully updated"
   else
     render :edit
     flash.now[:alert] = "Edits not saved"
@@ -33,21 +45,9 @@ end
 
 private
 
-def create_by_company
-  @company = Company.find(params[:company_id])
-  @lead = Lead.create(lead_params)
-  @lead.user = current_user
-  @lead.company = @company
-  if @lead.save
-    redirect_to @lead, notice: "Lead added successfully"
-  else
-    flash.now[:alert] = @lead.errors.full_messages
-    render :new
-  end
-end
 
 def lead_params
-  params.require(:lead).permit(:user_id, :name,:company_id, :position, :phone_number, :email, :status)
+  params.require(:lead).permit(:user_id, :name, :position, :phone_number, :email, :status)
 end
 
 end
