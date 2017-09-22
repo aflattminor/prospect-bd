@@ -1,26 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, browserHistory } from 'react-router';
+import UserIndexContainer from './UserIndexContainer';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-
-  render() {
-
+const App = (props) => {
+console.log("render")
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/dashboards" component={UserIndexContainer} />
-          <Route exact path="/dashboards/:user_id" component={UserShowContainer} />
-        </Switch>
-     </BrowserRouter>
+      <Router history={browserHistory}>
+          <Route exact path="/users" component={UserIndexContainer} />
+     </Router>
     );
   }
-}
+
 
 export default App;
