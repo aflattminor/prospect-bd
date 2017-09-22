@@ -12,7 +12,7 @@ class EmailsController < ApplicationController
     @email = Email.new(email_params)
     @email.lead = @lead
     if @email.save
-      redirect_to user_lead_path(@lead , @user ) ,notice: "Email Sent"
+      redirect_to user_lead_path(@lead, @email.lead ) ,notice: "Email Sent"
     else
       flash.now[:alert] = @email.errors.full_messages
       render :new
