@@ -9,6 +9,7 @@ class LeadsController < ApplicationController
   def new
     @user = current_user
     @lead = Lead.new
+    @status_collection  = Lead::STATUS_OPTIONS
   end
 
   def show
@@ -30,6 +31,8 @@ class LeadsController < ApplicationController
 def edit
   @user = User.find(params[:user_id])
   @lead = Lead.find(params[:id])
+  @status_collection  = Lead::STATUS_OPTIONS
+
 end
 
 def update

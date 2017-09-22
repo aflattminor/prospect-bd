@@ -21,7 +21,7 @@
       <%= f.text_field :email, placeholder: "Email" %><br />
 
       <% f.label :status %>
-      <%= f.text_field :status, placeholder: "Lead Status" %><br />
+      <%= f.select(:status, options_for_select(@status_collection))%><br/>
       <div>
         <% f.submit %>
         <button class="button">Add Lead</button>
