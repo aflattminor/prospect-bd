@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validates :username, presence: true
-  
+
 
   def admin?
     admin == true
@@ -45,5 +45,9 @@ class User < ApplicationRecord
 
   def calls
     self.leads.map{ |lead| lead.calls }.flatten
+  end
+
+  def meetings
+    self.leads.map{ |lead| lead.meetings }.flatten
   end
 end

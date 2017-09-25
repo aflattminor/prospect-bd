@@ -17,3 +17,16 @@
  body {
      padding-top: 65px;
  }
+
+.TeamShowComponent{
+  color: #7A7F82;
+border: 3px solid white;
+display: inline-block;
+vertical-align: top;
+text-align: center;
+background-color: black;
+height: 200px;
+width: 340px;
+margin: 5px;
+padding: 10px;
+}

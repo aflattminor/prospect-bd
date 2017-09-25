@@ -2,18 +2,29 @@
 <div class="leads header">
 <h2>Leads assigned to you<h1>
 </div>
-
+<div class= "inline">
+  <p class = "item">Name</p>
+  <p class = "item">Title</p>
+  <p class = "item">Company</p>
+  <p class = "item">Phone</p>
+  <p class = "item">Email</p>
+  <p class = "item">Status</p>
+  <p class = "item">Calls</p>
+  <p class = "item">Emails</p>
+  <p class = "item">Meetings</p>
+  <br />
+</div>
 <% @leads.each do |lead| %>
 <div class= "inline">
   <p class = "item"><%=link_to lead.name, user_lead_path(current_user, lead.id)%></p>
   <p class = "item"><%= lead.position %></p>
   <p class = "item"><%= lead.company %></p>
-  <p class = "item"><%= number_to_phone(lead.phone_number) %></p>
-  <p class = "item"><%= lead.email %></p>
+  <p class = "item"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(lead)%></p>
+  <p class = "item"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(lead)%></p>
   <p class = "item"><%= lead.status %></p>
-
-  <p class = "item"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(lead)%>Count:<%=lead.calls.count%></p>
-  <p class = "item"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(lead)%>Count:<%=lead.emails.count%></p>
+  <p class = "item"><%=lead.calls.count%></p>
+  <p class = "item"><%=lead.emails.count%></p>
+  <p class = "item"><%=link_to "<button>Record Meeting</button>".html_safe, new_lead_meeting_path(lead)%></p>
 
 
   <br />

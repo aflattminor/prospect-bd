@@ -27,4 +27,5 @@ class Lead < ApplicationRecord
   belongs_to :user
   has_many :calls
   has_many :emails
+  has_many :meetings
 end

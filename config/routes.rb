@@ -18,6 +18,10 @@ root 'home#show'
     resources :emails, only:[:index, :show, :create, :new]
   end
 
+  resources :leads, only:[:index, :show] do
+    resources :meetings, only:[:index, :show, :create, :new]
+  end
+
 
   namespace :api do
   namespace :v1 do

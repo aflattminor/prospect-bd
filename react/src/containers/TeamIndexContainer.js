@@ -22,6 +22,7 @@ class TeamIndexContainer extends React.Component {
   }
 
 
+
   componentDidMount(){
     fetch('/api/v1/users/')
     .then(response => {
@@ -47,7 +48,6 @@ class TeamIndexContainer extends React.Component {
   render() {
     let teamComponents = this.state.users.map((user) =>{
       return (
-        <Link to={`/users/${user.id}`} key ={user.id}>
          <TeamComponent
          key = {user.id}
          id= {user.id}
@@ -56,8 +56,8 @@ class TeamIndexContainer extends React.Component {
          emails= {user.email_count}
          territory={user.territory}
          title={user.title}
-         experience={user.experience_level}/>
-        </Link>
+         experience={user.experience_level}
+      />
       )
     })
 
