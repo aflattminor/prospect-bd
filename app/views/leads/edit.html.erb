@@ -1,6 +1,7 @@
 <div class='edit-lead-form'>
-  <br />
-  <%= form_for @lead do |f| %>
+
+<%= form_for [@user, @lead]  do |f| %>
+
     <div class= 'required-fields'>
       <% f.label :name %>
       <%= f.text_field :name, placeholder: "Name" %><br />
@@ -15,7 +16,7 @@
       <%= f.text_field :email, placeholder: "Email" %><br />
       <div>
         <% f.submit %>
-        <button class="button">Save Edits Lead</button>
+        <button class="button">Save Updates</button>
       </div>
   <% end %>
 </div>

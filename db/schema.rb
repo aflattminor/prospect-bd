@@ -10,19 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918185722) do
+ActiveRecord::Schema.define(version: 20170921154224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "companies", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "industry", null: false
-    t.string "core_business", null: false
-    t.integer "employee_count", null: false
-    t.string "headquarters", null: false
-    t.boolean "public", null: false
-    t.string "status", null: false
+  create_table "calls", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "lead_id", null: false
+    t.string "result", null: false
+    t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,7 +34,6 @@ ActiveRecord::Schema.define(version: 20170918185722) do
     t.integer "emails", default: 0
     t.integer "meetings", default: 0
     t.integer "user_id", null: false
-    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

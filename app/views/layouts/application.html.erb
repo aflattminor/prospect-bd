@@ -16,6 +16,7 @@
     <nav class="topnav" id="myTopnav">
       <div class=navigation><%= link_to "Home", root_path%></div>
       <% if user_signed_in? %>
+      <div class=user_leads><%=link_to "My leads", user_leads_path(current_user)%></div>
         <div class=username>Signed in as <%= current_user.email %></div>
         <div class=signin><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
       <% else%>
@@ -25,13 +26,6 @@
         </div>
       <%end%>
     </nav>
-
-      
-          <br />
-            <!-- <span>Prospect</span> <span>Trek</span> -->
-            <br />
-            <br />
-        </div>
     </div>
     <div class="app">
 

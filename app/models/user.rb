@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :email, :format => /@/
 
-    def admin
-      admin == true
-    end
+  def admin?
+    admin == true
+  end
 end

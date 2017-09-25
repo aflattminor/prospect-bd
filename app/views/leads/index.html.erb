@@ -5,28 +5,11 @@
 
 <% @leads.each do |lead| %>
 <div class= "inline">
-  <p class = "item"><%= lead.name%></p>
+  <p class = "item"><%=link_to lead.name, user_lead_path(current_user, lead.id)%></p>
   <p class = "item"><%= lead.position %></p>
   <p class = "item"><%= lead.phone_number %></p>
   <p class = "item"><%= lead.email %></p>
   <br />
 </div>
 <% end %>
-
-
-<p>To add a lead select a company<p>
-<%= form_tag do %>
-<select id= "mySelect" name="company_id" onChange="redirect()">
-  <option value="">Select Company</option>
-     <%= @companies.each do |company| %>
-       <option value="<%=company.id%>"><%=company.name%></option>
-     <% end %>
-   </select>
-<% end %>
-
-<script>
-function redirect(){
-  var x = document.getElementById("mySelect").value;
-  window.location = `/companies/${x}/leads/new`
-}
-</script>
+<%= link_to "Add a Lead", new_user_lead_path(current_user)%>

@@ -2,7 +2,7 @@
 
 <div class='add-lead-form'>
   <br />
-  <%= form_for ([@company, @lead]) do |f| %>
+  <%= form_for [@user, @lead]  do |f| %>
     <div class= 'required-fields'>
       <% f.label :name %>
       <%= f.text_field :name, placeholder: "Name" %><br />

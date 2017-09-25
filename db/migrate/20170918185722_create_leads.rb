@@ -10,7 +10,6 @@ class CreateLeads < ActiveRecord::Migration[5.1]
       t.integer :emails, default: 0
       t.integer :meetings, default: 0
       t.integer :user_id, null: false
-      t.integer :company_id, null: false 
 
         t.timestamps
     end
