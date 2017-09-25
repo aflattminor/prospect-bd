@@ -5,7 +5,8 @@ class User < ApplicationRecord
 
     has_many :leads
 
-  validates :email, :format => /@/
+  validates :email, presence: true 
+  validates :username, presence: true
 
   def admin?
     admin == true

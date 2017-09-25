@@ -1,3 +1,11 @@
 <h1><%=@lead.name%></h1>
 
-<%=link_to "Edit Details", edit_user_lead_path(@lead.user , @lead)%>
+<h1>Calls to this lead: <%=@lead.calls.count%></h1>
+<h1>Emails to this lead: <%=@lead.emails.count%></h1>
+
+
+
+
+<p class = "button"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(@lead)%></p>
+<p class = "button"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(@lead)%></p>
+<p class = "button"><%=link_to "<button>Edit Lead Details</button>".html_safe, edit_user_lead_path(@lead.user , @lead)%></p>

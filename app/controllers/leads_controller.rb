@@ -9,6 +9,7 @@ class LeadsController < ApplicationController
   def new
     @user = current_user
     @lead = Lead.new
+    @status_collection  = Lead::STATUS_OPTIONS
   end
 
   def show
@@ -19,6 +20,7 @@ class LeadsController < ApplicationController
     @user = current_user
     @lead = Lead.new(lead_params)
     @lead.user = @user
+    @status_collection  = Lead::STATUS_OPTIONS
     if @lead.save
       redirect_to user_leads_path notice: "Lead added successfully"
     else
@@ -30,6 +32,8 @@ class LeadsController < ApplicationController
 def edit
   @user = User.find(params[:user_id])
   @lead = Lead.find(params[:id])
+  @status_collection  = Lead::STATUS_OPTIONS
+
 end
 
 def update
@@ -47,7 +51,7 @@ private
 
 
 def lead_params
-  params.require(:lead).permit(:user_id, :name, :position, :phone_number, :email, :status)
+  params.require(:lead).permit(:company, :user_id, :name, :position, :phone_number, :email, :status)
 end
 
 end
