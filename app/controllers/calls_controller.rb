@@ -2,6 +2,11 @@ class CallsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @calls = Call.all
+  end
+
+  def show
+    @calls = Call.find(params[:user_id])
   end
 
   def new

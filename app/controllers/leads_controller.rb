@@ -20,6 +20,7 @@ class LeadsController < ApplicationController
     @user = current_user
     @lead = Lead.new(lead_params)
     @lead.user = @user
+    @status_collection  = Lead::STATUS_OPTIONS
     if @lead.save
       redirect_to user_leads_path notice: "Lead added successfully"
     else

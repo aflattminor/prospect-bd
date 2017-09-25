@@ -10,9 +10,9 @@ class TeamIndexContainer extends React.Component {
       calls: [],
       emails: [],
       meeting: []
-
     }
   }
+
 
   componentDidMount(){
     fetch('/api/v1/users/')

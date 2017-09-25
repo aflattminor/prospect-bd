@@ -4,15 +4,14 @@
   <br />
   <%= form_for [@user, @lead]  do |f| %>
     <div class= 'required-fields'>
-
       <% f.label :company %>
-      <%= f.text_field :company, placeholder: "Company" %><br />
+      <%= f.text_field :company, placeholder: "Company"%><br />
 
       <% f.label :name %>
-      <%= f.text_field :name, placeholder: "Name" %><br />
+      <%= f.text_field :name, placeholder: "Name"%><br />
 
       <% f.label :position %>
-      <%= f.text_field :position, placeholder: "Position" %><br />
+      <%= f.text_field :position, placeholder: "Position"%><br />
 
       <% f.label :phone_number %>
       <%= f.text_field :phone_number, placeholder: "Direct Dial" %><br/>

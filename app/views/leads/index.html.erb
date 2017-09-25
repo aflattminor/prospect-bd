@@ -10,6 +10,8 @@
   <p class = "item"><%= lead.company %></p>
   <p class = "item"><%= number_to_phone(lead.phone_number) %></p>
   <p class = "item"><%= lead.email %></p>
+  <p class = "item"><%= lead.status %></p>
+
   <p class = "item"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(lead)%>Count:<%=lead.calls.count%></p>
   <p class = "item"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(lead)%>Count:<%=lead.emails.count%></p>
 
