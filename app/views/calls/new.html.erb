@@ -1,0 +1,17 @@
+<h1>Call Details </h1>
+
+<div class='add-call-form'>
+  <br />
+  <%= form_for [@lead, @call]  do |f| %>
+    <div class= 'required-fields'>
+      <% f.label :result %>
+      <%= f.select(:result, options_for_select(@result_collection))%><br/>
+
+      <% f.label :body %>
+      <%= f.text_field :body, placeholder: "Message/Call details" %><br/>
+      <div>
+        <% f.submit %>
+        <button class="button">Save Call </button>
+      </div>
+  <% end %>
+</div>

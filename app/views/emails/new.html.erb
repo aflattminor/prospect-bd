@@ -1,0 +1,17 @@
+<h1>Compose Email</h1>
+
+<div class='add-email-form'>
+  <br />
+  <%= form_for [@lead, @email]  do |f| %>
+    <div class= 'required-fields'>
+      <% f.label :subject %>
+      <%= f.text_field :subject, placeholder: "Email Subject" %><br/>
+
+      <% f.label :body %>
+      <%= f.text_field :body, placeholder: "Email Body" %><br/>
+      <div>
+        <% f.submit %>
+        <button class="button">Send Email </button>
+      </div>
+  <% end %>
+</div>
