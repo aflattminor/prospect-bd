@@ -11,7 +11,6 @@
   justify-content: left;
   align-content:left;
   align-items:left;
-  background-color: #267CB2;
 }
 .item{
   margin: 0.25em auto;
@@ -20,4 +19,9 @@ vertical-align: top;
 display: inline-block;
 width: 33.3333%;
 float: left;
+}
+
+.button{
+background-color: #008CBA;
+  color: white;
 }

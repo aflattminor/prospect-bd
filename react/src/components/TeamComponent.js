@@ -8,6 +8,7 @@ const TeamComponent = (props) => {
 
   return (
     <div className="TeamShowComponent">
+    <i onClick={handleClick} className={props.button} aria-hidden="true"></i>
       <h3>{props.name}</h3>
       <p> Title: {props.title}</p>
       <p>Territory: {props.territory}</p>

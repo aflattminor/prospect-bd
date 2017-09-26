@@ -30,3 +30,46 @@ width: 340px;
 margin: 5px;
 padding: 10px;
 }
+
+.collapse_button{
+  top: 3px;
+   right: 8px;
+   float: right;
+   display: block;
+   width: 68px;
+   height: 34px;
+   background-repeat: no-repeat;
+   outline: none;
+}
+
+#myBar {
+    width: 10%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center; /* To center it horizontally (if you want) */
+    line-height: 30px; /* To center it vertically */
+    color: white;
+}
+#myProgress {
+    width: 50%;
+    background-color: grey;
+}
+
+
+.progress_label{
+  text-align: left;
+  font-weight: bold;
+}
+
+.UserComponent{
+color: #7A7F82;
+border: 3px solid white;
+display: inline-block;
+vertical-align: top;
+text-align: center;
+background-color: black;
+height: 800px;
+width: 740px;
+margin: 5px;
+padding: 10px;
+}

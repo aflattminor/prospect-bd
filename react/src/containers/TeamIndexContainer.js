@@ -1,6 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router'
 import TeamComponent from "../components/TeamComponent"
+// import UserShowContainer from "../containers/UserShowContainer"
+import UserComponent from "../components/UserComponent"
+import {ProgressBar} from 'React-Bootstrap'
+
 
 class TeamIndexContainer extends React.Component {
   constructor(props) {
@@ -44,21 +48,42 @@ class TeamIndexContainer extends React.Component {
 
 
 
-
   render() {
     let teamComponents = this.state.users.map((user) =>{
-      return (
-         <TeamComponent
-         key = {user.id}
-         id= {user.id}
-         name= {user.username}
-         calls= {user.call_count}
-         emails= {user.email_count}
-         territory={user.territory}
-         title={user.title}
-         experience={user.experience_level}
-      />
-      )
+      let button;
+      if(user.id === this.state.selectedUserId){
+        button= "fa fa-minus-square-o"
+        return (
+          <UserComponent
+          key = {user.id}
+          id= {user.id}
+          name= {user.username}
+          calls={user.call_count}
+          emails={user.email_count}
+          meetings={user.meeting_count}
+          clickButton={this.clickButton}
+          button={button}
+          />
+        )
+      }else{
+        button= "fa fa-plus-square"
+      }
+        return (
+          <div>
+          <TeamComponent
+          key = {user.id}
+          id= {user.id}
+          name= {user.username}
+          territory={user.territory}
+          title={user.title}
+          experience={user.experience_level}
+          clickButton={this.clickButton}
+          button={button}
+          />
+          </div>
+        )
+
+
     })
 
     return (
