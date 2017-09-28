@@ -5,13 +5,16 @@
   <%= form_for [@lead, @meeting]  do |f| %>
     <div class= 'required-fields'>
       <% f.label :result %>
-      <%= f.select(:result, options_for_select(@result_collection))%><br/>
+      <%= f.select(:result, options_for_select(@result_collection), {:prompt => 'Meeting Result'})%><br/>
 
       <% f.label :details %>
       <%= f.text_field :details, placeholder: "Meeting details" %><br/>
 
       <% f.label :next_steps %>
       <%= f.text_field :next_steps, placeholder: "Next Steps" %><br/>
+
+      <% f.label :source%>
+      <%= f.select(:source, options_for_select(@source_collection), {:prompt => 'Meeting Source'})%><br/>
       <div>
         <% f.submit %>
         <button class="button">Save Meeting </button>

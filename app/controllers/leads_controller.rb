@@ -14,6 +14,8 @@ class LeadsController < ApplicationController
 
   def show
     @lead = Lead.find(params[:id])
+    @position = @lead.position
+    @status = @lead.status
   end
 
   def create

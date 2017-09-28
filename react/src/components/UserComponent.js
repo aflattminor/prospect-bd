@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProgressBar} from 'React-Bootstrap'
+import {PieChart} from 'react-easy-chart';
 
 const UserComponent = (props) => {
 
@@ -7,10 +7,12 @@ const UserComponent = (props) => {
       props.clickButton(props.id)
     }
 
+    let score = (props.calls + props.emails)/props.meetings
+
   return(
 
     <div className="UserComponent">
-      <i className="collapse_button" onClick={handleClick} className={props.button} aria-hidden="true"></i>
+      <i onClick={handleClick} className={props.button} aria-hidden="true"></i>
       <h3>{props.name}</h3>
       <p>Calls: {props.calls}</p>
       <p>Emails: {props.emails}</p>
@@ -30,8 +32,25 @@ const UserComponent = (props) => {
       <div id="myProgress">
         <div id="myBar" style={{width: props.meetings + '%'}}>{props.meetings}%</div>
       </div>
+     <span><br/></span>
+     <span><br/></span>
 
 
+      <div id="pie">
+      <PieChart
+        size={270}
+        innerHoleSize={100}
+        labels
+        data={[
+          { key: `Calls: ${props.calls}`, value: props.calls, color: '#2791e4' },
+          { key: `Emails: ${props.emails}`, value: props.emails, color: '#F69D12' },
+        ]}
+      />
+      </div>
+
+      <div className="efficieny">
+        <h4>Efficieny Score MTD: {score}</h4>
+      </div>
     </div>
   )
 }

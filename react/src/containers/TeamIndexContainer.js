@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router'
 import TeamComponent from "../components/TeamComponent"
-// import UserShowContainer from "../containers/UserShowContainer"
 import UserComponent from "../components/UserComponent"
-import {ProgressBar} from 'React-Bootstrap'
+import {Grid, Row, Col, Clearfix} from 'react-bootstrap'
+
 
 
 class TeamIndexContainer extends React.Component {
@@ -87,9 +87,12 @@ class TeamIndexContainer extends React.Component {
     })
 
     return (
-      <div className="user-index-container">
-        {teamComponents}
-      </div>
+
+      <Grid>
+       <Row className="show-grid">
+         {teamComponents}
+       </Row>
+       </Grid>
     );
   }
 }

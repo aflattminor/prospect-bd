@@ -1,7 +1,12 @@
-<h1><%=@lead.name%></h1>
+<h1><%=@lead.name%>: <%=@lead.company%></h1>
+<h1><%=@lead.position%>: <%=@lead.status%></h1>
 
-<h1>Calls to this lead: <%=@lead.calls.count%></h1>
-<h1>Emails to this lead: <%=@lead.emails.count%></h1>
+
+
+<h3>Calls to this lead: <%=@lead.calls.count%></h3>
+<h3>Emails to this lead: <%=@lead.emails.count%></h3>
+<h3>Meetings with this lead: <%=@lead.meetings.count%></h3>
+
 
 
 

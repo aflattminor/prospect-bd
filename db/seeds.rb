@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+100.times do
+  Lead.create(name:"#{Faker::Name.name}")
+
+
+  000.times do
+  Question.create(title:"#{GOTFaker::Character.random_name}", question_text:"#{GOTFaker::Quote.tyrion_lannister}")
+end

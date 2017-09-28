@@ -12,16 +12,63 @@
   align-content:left;
   align-items:left;
 }
+.link{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-content:left;
+  align-items:left;
+
+}
+
+a{
+  color: purple;
+  font-weight: bold;
+}
+
+th{
+  width: 14%;
+}
+
+td{
+  width: 14%;
+  margin: 0.25em auto;
+}
+
 .item{
   margin: 0.25em auto;
 vertical-align: top;
-// border: 1px solid;
+border-bottom: 1px solid;
 display: inline-block;
 width: 33.3333%;
 float: left;
+text-decoration: underline;
+font-weight: bold;
+
 }
 
 .button{
 background-color: #008CBA;
   color: white;
+}
+
+.leadlines{
+margin: 0.25em auto;
+vertical-align: top;
+// border: 1px solid;
+display: inline-block;
+width: 33.3333%;
+float: left;
+font-weight: bold;
+}
+
+.select{
+  height: 3rem;
+}
+
+
+.required-fields{
+  width: 50%;
+  font-size: 10px;
+  margin: 5px;
 }

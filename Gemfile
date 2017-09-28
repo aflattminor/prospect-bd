@@ -25,6 +25,7 @@ gem "active_model_serializers", '0.9.3'
 gem 'jquery-rails'
 gem 'devise_saml_authenticatable'
 gem 'omniauth'
+gem 'bootstrap_form'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -40,6 +41,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'factory_girl'
+  gem 'faker'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
 end

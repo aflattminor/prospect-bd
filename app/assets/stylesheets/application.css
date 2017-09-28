@@ -12,7 +12,40 @@
  *
  *= require_tree .
  *= require_self
+ *= require rails_bootstrap_forms
  */
+
+
+.field{
+  margin-left: 15px;
+  width: 50%;
+}
+ .inline {
+   display: flex;
+   flex-flow: row nowrap;
+   justify-content: left;
+   align-content:left;
+   align-items:left;
+ }
+
+ .row{
+   margin-top:40px;
+   padding: 0 10px;
+}
+.clickable{
+   cursor: pointer;
+}
+
+.panel-heading div {
+ margin-top: -18px;
+ font-size: 15px;
+}
+.panel-heading div span{
+ margin-left:5px;
+}
+.panel-body{
+ display: none;
+}
 
  body {
      padding-top: 65px;
@@ -23,23 +56,18 @@
 border: 3px solid white;
 display: inline-block;
 vertical-align: top;
+position: relative;
 text-align: center;
 background-color: black;
 height: 200px;
 width: 340px;
-margin: 5px;
 padding: 10px;
+z-index: 3;
 }
 
-.collapse_button{
-  top: 3px;
-   right: 8px;
-   float: right;
-   display: block;
-   width: 68px;
-   height: 34px;
-   background-repeat: no-repeat;
-   outline: none;
+
+.pie{
+  align-items: right;
 }
 
 #myBar {
@@ -64,12 +92,15 @@ padding: 10px;
 .UserComponent{
 color: #7A7F82;
 border: 3px solid white;
-display: inline-block;
+display: top;
 vertical-align: top;
-text-align: center;
+text-align: left;
 background-color: black;
-height: 800px;
-width: 740px;
+height: 130%;
+width: 80%;
 margin: 5px;
 padding: 10px;
+z-index: 5;
+position: absolute;
+
 }

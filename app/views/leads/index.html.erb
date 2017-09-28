@@ -1,33 +1,56 @@
 
-<div class="leads header">
-<h2>Leads assigned to you<h1>
-</div>
-<div class= "inline">
-  <p class = "item">Name</p>
-  <p class = "item">Title</p>
-  <p class = "item">Company</p>
-  <p class = "item">Phone</p>
-  <p class = "item">Email</p>
-  <p class = "item">Status</p>
-  <p class = "item">Calls</p>
-  <p class = "item">Emails</p>
-  <p class = "item">Meetings</p>
-  <br />
-</div>
-<% @leads.each do |lead| %>
-<div class= "inline">
-  <p class = "item"><%=link_to lead.name, user_lead_path(current_user, lead.id)%></p>
-  <p class = "item"><%= lead.position %></p>
-  <p class = "item"><%= lead.company %></p>
-  <p class = "item"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(lead)%></p>
-  <p class = "item"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(lead)%></p>
-  <p class = "item"><%= lead.status %></p>
-  <p class = "item"><%=lead.calls.count%></p>
-  <p class = "item"><%=lead.emails.count%></p>
-  <p class = "item"><%=link_to "<button>Record Meeting</button>".html_safe, new_lead_meeting_path(lead)%></p>
 
 
-  <br />
-</div>
-<% end %>
-<%= link_to "Add a Lead", new_user_lead_path(current_user)%>
+
+
+
+<div class="container">
+    	<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Leads Assigned to you</h3>
+						<div class="pull-right">
+							<span class="clickable filter" data-toggle="tooltip" title="Toggle table filter" data-container="body">
+								<i class="glyphicon glyphicon-filter"></i>
+							</span>
+						</div>
+					</div>
+					<div class="panel-body">
+						<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Find Lead" />
+					</div>
+					<table class="table table-hover" id="dev-table">
+						<thead>
+              <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Calls</th>
+                <th>Emails</th>
+                <th>Meetings</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @leads.each do |lead| %>
+                <tr>
+                  <td><%=link_to lead.name, user_lead_path(current_user, lead.id)%></td>
+                  <td><%= lead.position %></td>
+                  <td><%= lead.company %></td>
+                  <td><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(lead)%></td>
+                  <td><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(lead)%></td>
+                  <td><%= lead.status %></td>
+                  <td><%=lead.calls.count%></td>
+                  <td><%=lead.emails.count%></td>
+                  <td><%=link_to "<button>Record Meeting</button>".html_safe, new_lead_meeting_path(lead)%></td>
+                  <%end%>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="button">
+      <%= link_to "Add a Lead", new_user_lead_path(current_user)%>
+      </div>

@@ -13,6 +13,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new
     @lead = Lead.find(params[:lead_id])
     @result_collection  = Meeting::RESULTS
+    @source_collection = Meeting::SOURCE
   end
 
   def create
@@ -31,7 +32,7 @@ class MeetingsController < ApplicationController
 
 
   def meeting_params
-    params.require(:meeting).permit(:lead_id, :result, :details, :next_steps)
+    params.require(:meeting).permit(:lead_id, :result, :details, :next_steps, :source)
   end
 
 end

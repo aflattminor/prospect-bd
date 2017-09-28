@@ -9,12 +9,19 @@ class Meeting < ApplicationRecord
     ["Not a Fit", "Not a Fit"]
   ]
 
+  SOURCE = [
+    ["Cold Call", "Cold Call"],
+    ["Email","Email"],
+    ["Referral", "Referral"],
+  ]
+
   belongs_to :lead
 
   validates :lead_id, presence: true
   validates :result, presence: true, inclusion: { in: RESULTS.map { |result| result[1] } }
   validates :details, presence: true
   validates :next_steps, presence: true
+  validates :source, presence: true 
 
 
 end
