@@ -1,16 +1,157 @@
-<h1><%=@lead.name%>: <%=@lead.company%></h1>
-<h1><%=@lead.position%>: <%=@lead.status%></h1>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
 
-<h3>Calls to this lead: <%=@lead.calls.count%></h3>
-<h3>Emails to this lead: <%=@lead.emails.count%></h3>
-<h3>Meetings with this lead: <%=@lead.meetings.count%></h3>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+        </div>
+        <table class="table table-hover" id="dev-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Status</th>
+              <th>Calls</th>
+              <th>Emails</th>
+              <th>Meetings</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%=@lead.name%></td>
+              <td><%= @lead.position %></td>
+              <td><%= @lead.company %></td>
+              <td><%= @lead.status %></td>
+              <td><%=@lead.calls.count%></td>
+              <td><%=@lead.emails.count%></td>
+              <td><%=@lead.meetings.count%></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div>
+      <p class = "button"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(@lead)%></p>
+      <p class = "button"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(@lead)%></p>
+      <p class = "button"><%=link_to "<button>Edit Lead Details</button>".html_safe, edit_user_lead_path(@lead.user , @lead)%></p>
+      <p class = "button"><%=link_to "<button>Record Meeting</button>".html_safe, new_lead_meeting_path(@lead)%></p>
+
+    </div>
 
 
 
 
 
-<p class = "button"><%=link_to "<button>Call</button>".html_safe, new_lead_call_path(@lead)%></p>
-<p class = "button"><%=link_to "<button>Email</button>".html_safe, new_lead_email_path(@lead)%></p>
-<p class = "button"><%=link_to "<button>Edit Lead Details</button>".html_safe, edit_user_lead_path(@lead.user , @lead)%></p>
+    <div class="container">
+      <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#table-wrapper-calls">View Calls</button>
+
+      <div class="row">
+        <div class="col-md-6 col">
+          <div class="table-wrapper collapse" id="table-wrapper-calls">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+            </div>
+            <table class="table  table-hover">
+              <thead>
+                <tr>
+                  <th>Calls</th>
+                  <th>Result</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%@lead.calls.each do |call|%>
+                <tr>
+                  <td><%=call.created_at.strftime("%B %d %Y")%></td>
+                  <td><%= call.result %></td>
+                  <td><%= call.body %></td>
+                </tr>
+                <%end%>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+        <div class="container">
+          <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#table-wrapper-emails">View Emails</button>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="table-wrapper collapse" id="table-wrapper-emails">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                </div>
+                <table class="table table-hover" id="dev-table">
+                  <thead>
+                    <tr>
+                      <th>Emails</th>
+                      <th>Subject</th>
+                      <th>Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <%@lead.emails.each do |email|%>
+                    <tr>
+                      <td><%=email.created_at.strftime("%B %d %Y")%></td>
+                      <td><%= email.subject%></td>
+                      <td><%= email.body%></td>
+                    </tr>
+                    <%end%>
+                  </tbody>
+                </table>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    </div>
+                    <table class="table table-hover" id="dev-table">
+                      <thead>
+                        <tr>
+                          <th>Meetings</th>
+                          <th>Result</th>
+                          <th>Details</th>
+                          <th>Next Steps</th>
+                          <th>Source</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%@lead.meetings.each do |meeting|%>
+                        <tr>
+                          <td><%=meeting.created_at.strftime("%B %d %Y")%></td>
+                          <td><%= meeting.result%></td>
+                          <td><%= meeting.details%></td>
+                          <td><%= meeting.next_steps%></td>
+                          <td><%= meeting.source%></td>
+                        </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+                <div class="page">
+                  <nav aria-label="hidden">
+                    <ul class="pager">
+                      <li><a href=`#`>Previous</a></li>
+                      <li><a href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>

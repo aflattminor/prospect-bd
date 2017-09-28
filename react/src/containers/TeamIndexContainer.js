@@ -39,6 +39,7 @@ class TeamIndexContainer extends React.Component {
       }
     })
     .then(response => {
+      debugger
       this.setState({
         users: response
       })
@@ -61,6 +62,7 @@ class TeamIndexContainer extends React.Component {
           calls={user.call_count}
           emails={user.email_count}
           meetings={user.meeting_count}
+          meetingList={user.meetings}
           clickButton={this.clickButton}
           button={button}
           />

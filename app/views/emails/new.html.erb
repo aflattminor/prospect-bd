@@ -4,11 +4,14 @@
   <br />
   <%= form_for [@lead, @email]  do |f| %>
     <div class= 'required-fields'>
-      <% f.label :subject %>
-      <%= f.text_field :subject, placeholder: "Email Subject" %><br/>
-
-      <% f.label :body %>
-      <%= f.text_field :body, placeholder: "Email Body" %><br/>
+        <div class="email-subject">
+        <% f.label :subject %>
+        <%= f.text_field :subject, placeholder: "Email Subject" %><br/>
+        </div>
+        <div class="email-body">
+        <% f.label :body %>
+        <%= f.text_area :body, placeholder: "Email Body" %><br/>
+        </div>
       <div>
         <% f.submit %>
         <button class="button">Send Email </button>

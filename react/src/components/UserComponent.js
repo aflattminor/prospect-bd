@@ -1,5 +1,6 @@
 import React from 'react';
 import {PieChart} from 'react-easy-chart';
+import {Table} from 'react-bootstrap'
 
 const UserComponent = (props) => {
 
@@ -20,17 +21,17 @@ const UserComponent = (props) => {
 
       <p className="progress_label">Calls against Monthly Goal - 1200</p>
       <div id="myProgress">
-        <div id="myBar" style={{width: props.calls + '%'}}>{props.calls}%</div>
+        <div id="myBar" style={{width: props.calls/12 + '%'}}>{(props.calls/12).toFixed(2)}%</div>
       </div>
 
       <p className="progress_label">Emails against Monthly Goal - 600</p>
       <div id="myProgress">
-        <div id="myBar" style={{width: props.emails + '%'}}>{props.emails}%</div>
+        <div id="myBar" style={{width: props.emails/6 + '%'}}>{(props.emails/6).toFixed(2)}%</div>
       </div>
 
       <p className="progress_label">Meetings against Monthly Goal - 15</p>
       <div id="myProgress">
-        <div id="myBar" style={{width: props.meetings + '%'}}>{props.meetings}%</div>
+        <div id="myBar" style={{width: props.meetings*6.66 + '%'}}>{(props.meetings*6.66).toFixed(1)}%</div>
       </div>
      <span><br/></span>
      <span><br/></span>
@@ -47,6 +48,9 @@ const UserComponent = (props) => {
         ]}
       />
       </div>
+
+
+
 
       <div className="efficieny">
         <h4>Efficieny Score MTD: {score}</h4>

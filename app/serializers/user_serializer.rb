@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :call_count, :email_count, :title, :territory, :experience_level, :meeting_count
+  attributes :id,:meetings, :username, :call_count, :email_count, :title, :territory, :experience_level, :meeting_count
 
   def call_count
     object.calls.count
@@ -12,4 +12,8 @@ class UserSerializer < ActiveModel::Serializer
   def meeting_count
     object.meetings.count
   end
+
+  def meetings
+    object.meetings
+end
 end
