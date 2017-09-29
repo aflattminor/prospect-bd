@@ -39,7 +39,6 @@ class TeamIndexContainer extends React.Component {
       }
     })
     .then(response => {
-      debugger
       this.setState({
         users: response
       })

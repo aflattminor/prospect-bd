@@ -12,7 +12,7 @@ const TeamComponent = (props) => {
 
 
 
-         <Col className="TeamShowComponent" sm={12} md={6}>
+         <Col className="TeamShowComponent" sm={12} md={6} lg={3}>
             <i onClick={handleClick} className={props.button} aria-hidden="true"></i>
             <h3>{props.name}</h3>
             <p> Title: {props.title}</p>
