@@ -11,6 +11,6 @@
   Lead.create(name:"#{Faker::Name.name}", company:"#{Faker::Company.name}",position:"#{Faker::Job.title}", phone_number:"555-555-5555", email:"#{Faker::Name.name}@email.com", status:"In Process", user_id:rand(6)+1)
 end
 
-1000.times do
+300.times do
   Call.create(lead_id:rand(100)+1, result:"Left Message", body:"#{Faker::Seinfeld.quote}")
 end

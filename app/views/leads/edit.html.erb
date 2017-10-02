@@ -20,7 +20,7 @@
       <%= f.text_field :email, placeholder: "Email" %><br />
 
       <% f.label :status %>
-      <%= f.select(:status, options_for_select(@status_collection))%><br/>
+      <%= f.select(:status, options_for_select(@status_collection), {:prompt => "lead status"})%>
       <div>
         <% f.submit %>
         <button class="button">Save Updates</button>

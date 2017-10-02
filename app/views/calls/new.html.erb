@@ -5,7 +5,8 @@
   <%= form_for [@lead, @call]  do |f| %>
     <div class= 'required-fields'>
       <% f.label :result %>
-      <%= f.select(:result, options_for_select(@result_collection))%><br/>
+      <%= f.select(:result, options_for_select(@result_collection), {:prompt => "Result"})%><br/>
+
 
       <% f.label :body %>
       <%= f.text_field :body, placeholder: "Message/Call details" %><br/>

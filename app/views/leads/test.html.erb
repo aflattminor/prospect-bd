@@ -1,0 +1,27 @@
+<div class="container">
+    	<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">Leads Assigned to you</h3>
+					</div>
+					<table class="table table-hover" id="dev-table">
+						<thead>
+              <tr>
+                <th>Meeting</th>
+                <th>Result</th>
+                <th>Source</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% meetingList.each do |meeting| %>
+                <tr>
+                  <td><%=%></td>
+                  <td><%= lead.position %></td>
+                  <td><%= lead.company %></td>
+                  <%end%>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>

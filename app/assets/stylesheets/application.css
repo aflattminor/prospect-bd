@@ -48,23 +48,8 @@
 }
 
  body {
-     padding-top: 65px;
+     padding-top: 75px;
  }
-
-.TeamShowComponent{
-color: #7A7F82;
-border: 3px solid white;
-display: inline-block;
-vertical-align: top;
-position: relative;
-text-align: center;
-background-color: black;
-height: 200px;
-width: 340px;
-padding: 10px;
-z-index: 3;
-}
-
 
 .pie{
   align-items: right;
@@ -83,24 +68,55 @@ z-index: 3;
     background-color: grey;
 }
 
-
 .progress_label{
   text-align: left;
   font-weight: bold;
 }
 
+.TeamShowComponent{
+  border-radius: 10px;
+color: #fff;
+border: 3px solid white;
+display: inline-block;
+vertical-align: top;
+position: relative;
+text-align: center;
+background-color: #222;
+height: 200px;
+width: 340px;
+padding: 10px;
+z-index: 3;
+font-weight: bolder;
+}
+
+.fa-plus-square:hover {
+    color: #1ee2e7;
+    cursor: pointer;
+}
+
 .UserComponent{
-color: #7A7F82;
+  border-radius: 10px;
+color: #fff;
 border: 3px solid white;
 display: top;
 vertical-align: top;
 text-align: left;
-background-color: black;
-height: 130%;
-width: 80%;
-margin: 5px;
+font-weight: bold;
+background-color: #222;
+height: 85%;
+width: 70%;
 padding: 10px;
 z-index: 5;
 position: absolute;
+}
 
+.fa-minus-square-o:hover {
+    color: #1ee2e7;
+    cursor: pointer;
+}
+
+.meet-table{
+  position: absolute;
+   top: 80px;
+   right: 95px;
 }
