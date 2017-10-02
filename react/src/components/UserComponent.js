@@ -50,12 +50,15 @@ const UserComponent = (props) => {
       </div>
 
 
-
-
       <div className="efficieny">
         <h4>Efficieny Score MTD: {score}</h4>
       </div>
+
+
+    <div className="meet-table">
+      <p>Data by:</p><a>week</a>/<a>month</a>/<a>quarter</a>
     </div>
+</div>
   )
 }
 

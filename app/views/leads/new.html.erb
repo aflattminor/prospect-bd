@@ -1,6 +1,6 @@
 <h1>Add a new Lead</h1>
 
-<div class='add-lead-form_for'>
+<div class='add-lead-form'>
 
   <%= form_for [@user, @lead]  do |f| %>
     <div class= 'required-fields'>
@@ -20,10 +20,12 @@
       <%= f.text_field :email, placeholder: "Email" %>
 
       <% f.label :status %>
-      <%= f.select(:status, options_for_select(@status_collection))%>
+
+      <%= f.select(:status, options_for_select(@status_collection), {:prompt => "Lead status"})%></br>
+    </br>
       <div>
         <% f.submit %>
-        <button class="button">Add Lead</button>
+        <button class="button" style="font-weight: bold;">Add Lead</button>
       </div>
   <% end %>
 </div>

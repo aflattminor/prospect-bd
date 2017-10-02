@@ -4,9 +4,10 @@ devise_for :users, :controllers => { registrations: 'registrations' }
 
 
 
-root 'home#show'
+  root 'home#show'
 
 
+resources :home, only:[:show, :index]
 
   resources :users do
     resources :leads

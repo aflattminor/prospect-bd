@@ -15,24 +15,71 @@
 
   <body>
 
-    <div id="grad">
+    <body id="page-top" class="index" data-pinterest-extension-installed="cr1.3.4">
 
-    <nav class="topnav" id="myTopnav">
-      <div class=navigation><%= link_to "DashBoards", root_path%></div>
-      <% if user_signed_in? %>
-      <div class=user_leads><%=link_to "My leads", user_leads_path(current_user)%></div>
-        <div class=username>Signed in as <%= current_user.email %></div>
-        <div class=signin><%= link_to "Sign out", destroy_user_session_path, method: :delete %></div>
-      <% else%>
-        <div class=signin>
-          <%= link_to "Sign up", new_user_registration_path %>
-          <%= link_to "Sign in", new_user_session_path %>
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span style="font-size: 24px;">
+                <a class="navbar-brand page-scroll"><%= link_to "DashBoards", root_path%></a>
+              </span>
+                <% if user_signed_in? %>
+                <span style=" font-size: 24px; margin: 10px;">
+                  <a class="navbar-brand page-scroll2"><%=link_to "My leads", user_leads_path(current_user)%></a>
+                  <%end%>
+              </span>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <% if user_signed_in? %>
+                    <li class="">
+                        <a class="navbar-brand page-scroll"><%= link_to "Sign out", destroy_user_session_path, method: :delete %></a>
+                    </li>
+                    <li class="">
+                      <a class="navbar-user-info">Signed in as <%= current_user.email %></a>
+                    </li>
+                    <li class="">
+                      <%else%>
+                      <a class="navbar-brand page-scroll"> <%= link_to "Sign up", new_user_registration_path %></a>
+                    </li>
+                    <li class="">
+                      <a class="navbar-brand page-scroll"><%= link_to "Sign in", new_user_session_path %></a>
+                    </li>
+                    <%end%>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-      <%end%>
+        <!-- /.container-fluid -->
+        <script>
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+        $('.navbar-collapse ul li a').click(function() {
+            $('.navbar-toggle:visible').click();
+        });
+        </script>
     </nav>
-    </div>
-    <div class="flash">
 
+<span style="height: 20px; width: 40px; min-height: 20px; min-width: 40px; position: absolute; opacity: 0.85; z-index: 8675309; display: none; cursor: pointer; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAADU0lEQVR42s2WXUhTYRjHz0VEVPRFUGmtVEaFUZFhHxBhsotCU5JwBWEf1EWEEVHQx4UfFWYkFa2biPJiXbUta33OXFtuUXMzJ4bK3Nqay7m5NeZq6h/tPQ+xU20zugjOxR/+7/O8539+5znnwMtNTExwJtMb3L/fiLv3botCSmUjeCaejTOb39AiFothfHxcFIrHY8RksZjBsckJcOIRMfFsHD/SsbExUYpnI8DR0dGUGjSb0byhEJp5Uqg5CTSzc2CQleJbMEj9/ywBcGRkJEk9DQqouEVQT1sK444yWI9UonmTjGqauVLEIlHa9x8lAMbj8SSpp0rwKGMVvg8P46vbg0C7na8z8JsMcgHe7jlEa+edRhiLy8n/TUMfu6EvLElk+U0WtGwrTrdfAGQf5J8iiK4LVzDU28t8JtMSocf8E+l68myaNFXm/6rXslLK7ay5TOunuRvZWpJuvwAYjUaTpOIWoquuAZ219RTaxKYp9BbjycoN5FvL9qH9TBX5rvoGdJythvXYSTxdtRnWylO/ZdqrLsGwszzhWQ593z2KlAwCYCQSSZJ6ehZ0W7bD9VBLgN0NCqr3qR7R2rBrL3pu3Sb/7nDlz2uy6cG0OXk0GTbZXzNp8trsPAQdTj6frlWzN2DcXZGKQQAMh8NJ6rpyHe+PnkCr/CAFdZyvpfpjuvkifLF9wIt1Wwlo0OHie1RvWrKa93RjzfzliTzPKz3ltB0/Tevmwp14wGUgHAzSOoUEwFAolFaaBSuhnslPRkJexUJtZ6v5HtUeLswl33n1BgEY5fvhs9sJ3FAiT+QYyyvoAQJuD0KBAFRTJNAuz5/s3gJgMBhMJwrVFRThM5tY5zUF/A4X1f2fvQTRLCuBreoim0YmAbqNJryvPEXeeq46kaNdkQ/1HCncbJKPs9ZSv2VHGfWsZ2hfkhKAfr8/pdxWKx4wwD69PmVfNSOL+lr2w+gYqHpWDtXt1xQ8AMlWU0e1lqLd/APRHoP8AJqWrQG9gYxcPMsvSJUvAA4MDKTUJ7MZLaVy8v+qT21tcDx/OemePr0RTkNrur4A6PP5xCgBsL+/X4wiQDpuuVxOeL1eMYmYeDY6sOp0z+B0OuHxeEQhxkJMFosJiSO/UinOI/8Pc+l7KKArAT8AAAAASUVORK5CYII=);"></span></body>
+
+    <div class="flash">
   <%flash.each do |key, value|%>
       <% if value.class == Array%>
       <%value.each do |message|%>
@@ -43,5 +90,33 @@
       </ul>
     <%end%>
   <%end%>
+    </div>
+    <div>
     <%= yield %>
+  </div>
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-md-4">
+                  <span class="copyright">Copyright © Prospect-BD 2017</span>
+              </div>
+              <div class="col-md-4">
+                  <ul class="list-inline social-buttons">
+                      <li><a href="https://github.com/aflattminor/prospect-bd"><i class="fa fa-github"></i></a>
+                      </li>
+                      <li><a href="https://www.linkedin.com/in/andrew-flattery/"><i class="fa fa-linkedin"></i></a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="col-md-4">
+                  <ul class="list-inline quicklinks">
+                      <li>Privacy Policy
+                      </li>
+                      <li>Terms of Use
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
   </body>

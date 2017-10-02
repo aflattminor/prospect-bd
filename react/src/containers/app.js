@@ -7,7 +7,7 @@ const App = (props) => {
     return (
       <Router history={browserHistory}>
         <Route exact path="/" component={TeamIndexContainer} />
-        <Route exact path="/users" component={TeamIndexContainer} />
+        <Route exact path="/dashboards" component={TeamIndexContainer} />
       </Router>
     );
   }
