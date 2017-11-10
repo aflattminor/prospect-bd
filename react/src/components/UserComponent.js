@@ -49,7 +49,6 @@ const UserComponent = (props) => {
       />
       </div>
 
-
       <div className="efficieny">
         <h4>Efficieny Score MTD: {score}</h4>
       </div>
